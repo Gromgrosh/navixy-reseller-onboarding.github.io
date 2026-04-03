@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navixy Reseller Onboarding — Workflow Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+/**
+ * Web Document Generator — Base Styles
+ * Design Tokens: LightSpectrum Design System v1.0.0
+ * Source: Lightmetrics Figma Design System
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-display: clamp(31.93px, calc(26.72px + 1.628vw), 50.16px);
+  --font-size-h1: clamp(28.38px, calc(24.55px + 1.198vw), 41.8px);
+  --font-size-h2: clamp(25.23px, calc(22.48px + 0.858vw), 34.84px);
+  --font-size-h3: clamp(22.43px, calc(20.54px + 0.589vw), 29.03px);
+  --font-size-h4: clamp(19.93px, calc(18.71px + 0.380vw), 24.19px);
+  --font-size-h5: clamp(17.72px, calc(17.02px + 0.218vw), 20.16px);
+  --font-size-h6: clamp(15.75px, calc(15.45px + 0.094vw), 16.8px);
+  --font-size-text-large: clamp(15.75px, calc(15.45px + 0.094vw), 16.8px);
+  --font-size-text-main: 14px;
+  --font-size-text-small: clamp(11.67px, calc(11.45px + 0.069vw), 12.44px);
+  --font-size-caption: clamp(9.72px, calc(9.34px + 0.120vw), 11.06px);
+
+  --line-height-display: 1.2;
+  --line-height-h1: 1.2;
+  --line-height-h2: 1.25;
+  --line-height-h3: 1.3;
+  --line-height-h4: 1.35;
+  --line-height-h5: 1.4;
+  --line-height-h6: 1.45;
+  --line-height-text: 1.6;
+
+  --letter-spacing-display: -0.04em;
+  --letter-spacing-h1: -0.025em;
+  --letter-spacing-h2: -0.02em;
+  --letter-spacing-h3: -0.01em;
+
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  --color-plum-50: #FDF5FE;
+  --color-plum-100: #FCEAFE;
+  --color-plum-800: #8B2682;
+  --color-plum-950: #470B40;
+
+  --color-eastern-blue-50: #EFFCFC;
+  --color-eastern-blue-600: #2898A2;
+
+  --color-shark-50: #F5F5F5;
+  --color-shark-100: #E9E8E8;
+  --color-shark-200: #D2D1D0;
+  --color-shark-400: #8A8785;
+  --color-shark-500: #706D6B;
+  --color-shark-600: #5E5B5A;
+  --color-shark-950: #212121;
+
+  --color-success-50: #DCF9F0;
+  --color-success-500: #0C9C71;
+  --color-warning-50: #FBF6EF;
+  --color-warning-500: #D38B43;
+
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  --radius-sm: 2px;
+  --radius-default: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-full: 9999px;
+
+  --sidebar-w: 280px;
+  --header-h: 64px;
+  --content-max: 900px;
+  --section-gap: var(--space-10);
+
+  --theme-background: var(--color-shark-50);
+  --theme-surface: var(--color-white);
+  --theme-text: var(--color-shark-950);
+  --theme-subtext: var(--color-shark-600);
+  --theme-muted: var(--color-shark-400);
+  --theme-border: var(--color-shark-200);
+  --theme-border-light: #E4E4E7;
+  --theme-hover: var(--color-shark-50);
+
+  --theme-brand: #8B2682;
+  --theme-brand-light: #f3e8f2;
+  --theme-brand-text: #FFFFFF;
+
+  --warning-bg: #FFFBEB;
+  --warning-border: #FCD34D;
+  --warning-txt: #92400E;
+  --info-bg: #EFF6FF;
+  --info-border: #BFDBFE;
+  --info-txt: #1E40AF;
+  --cond-bg: #FDF4FF;
+  --cond-border: #D8B4FE;
+  --cond-txt: #6B21A8;
+  --success-bg: #F0FDF4;
+  --success-border: #86EFAC;
+  --success-txt: #166534;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-text-main);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-text);
+  background: var(--theme-background);
+  color: var(--theme-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a {
+  color: var(--theme-brand);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { text-decoration: underline; }
+
+h1, .h1 { font-size: var(--font-size-h1); font-weight: var(--font-weight-bold); line-height: var(--line-height-h1); letter-spacing: var(--letter-spacing-h1); }
+h2, .h2 { font-size: var(--font-size-h2); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h2); letter-spacing: var(--letter-spacing-h2); }
+h3, .h3 { font-size: var(--font-size-h3); font-weight: var(--font-weight-semibold); line-height: var(--line-height-h3); letter-spacing: var(--letter-spacing-h3); }
+h4, .h4 { font-size: var(--font-size-h4); font-weight: var(--font-weight-medium); line-height: var(--line-height-h4); }
+h5, .h5 { font-size: var(--font-size-h5); font-weight: var(--font-weight-medium); line-height: var(--line-height-h5); }
+
+/* Language Switching */
+body[data-lang="en"] [data-lang]:not([data-lang="en"]),
+body[data-lang="es"] [data-lang]:not([data-lang="es"]),
+body[data-lang="fr"] [data-lang]:not([data-lang="fr"]) {
+  display: none !important;
+}
+
+/* Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--theme-border-light);
+  z-index: 99;
+}
+.scroll-bar {
+  height: 100%;
+  background: var(--theme-brand);
+  width: 0%;
+  transition: width 0.1s;
+}
+
+/* Header */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--theme-surface);
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+  gap: var(--space-3);
+  border-bottom: 1px solid var(--theme-border-light);
+  box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
+}
+@media (min-width: 640px) {
+  .site-header { padding: 0 var(--space-6); gap: var(--space-4); }
+}
+
+.site-header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.brand-logo-img { height: 24px; width: auto; }
+@media (min-width: 640px) { .brand-logo-img { height: 28px; } }
+
+.brand-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--theme-border-light);
+  display: none;
+}
+@media (min-width: 640px) { .brand-divider { display: block; } }
+
+.brand-text { display: none; }
+@media (min-width: 640px) { .brand-text { display: block; } }
+
+.brand-name {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-text-main);
+  color: var(--theme-text);
+}
+.brand-sub {
+  display: block;
+  font-size: var(--font-size-text-small);
+  color: var(--theme-muted);
+  margin-top: 1px;
+}
+
+.header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.lang-selector { display: flex; align-items: center; gap: var(--space-2); }
+.lang-selector__dropdown {
+  padding: var(--space-2) var(--space-8) var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--theme-border-light);
+  background: var(--theme-surface);
+  color: var(--theme-text);
+  font-size: var(--font-size-text-main);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23374151' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-2) center;
+}
+.lang-selector__dropdown:hover { border-color: var(--theme-brand); }
+.lang-selector__dropdown:focus { outline: 2px solid var(--theme-brand); outline-offset: 2px; }
+
+/* Hamburger */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  color: var(--theme-subtext);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+@media (min-width: 1200px) { .hamburger { display: none; } }
+
+/* Sidebar */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 110;
+}
+.sidebar-overlay.active { display: block; }
+
+.sidebar {
+  position: fixed;
+  top: var(--header-h);
+  right: 0;
+  bottom: 0;
+  width: min(var(--sidebar-w), 85vw);
+  background: var(--theme-surface);
+  border-left: 1px solid var(--theme-border-light);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+  z-index: 120;
+  overflow-y: auto;
+}
+.sidebar.open { transform: translateX(0); }
+@media (min-width: 1200px) {
+  .sidebar {
+    left: 0;
+    right: auto;
+    transform: none;
+    width: var(--sidebar-w);
+    border-left: none;
+    border-right: 1px solid var(--theme-border-light);
+  }
+}
+
+.sidebar__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--theme-border-light);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-text-small);
+  color: var(--theme-subtext);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.sidebar__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.125rem;
+  color: var(--theme-subtext);
+  padding: var(--space-1);
+}
+@media (min-width: 1200px) { .sidebar__close { display: none; } }
+
+.sidebar__list { list-style: none; flex: 1; padding: var(--space-2) 0; }
+.sidebar__link {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  color: var(--theme-text);
+  font-size: var(--font-size-text-main);
+  transition: background 0.15s;
+}
+.sidebar__link:hover { background: var(--theme-brand-light); text-decoration: none; }
+
+/* Active state */
+.sidebar__link.active {
+  background: var(--theme-brand-light);
+  border-right: 3px solid var(--theme-brand);
+}
+@media (min-width: 1200px) {
+  .sidebar__link.active { border-right: none; border-left: 3px solid var(--theme-brand); }
+}
+.sidebar__link.active .sidebar__num {
+  background: var(--theme-brand);
+  color: var(--theme-brand-text);
+}
+.sidebar__link.active .sidebar__step-title { color: var(--theme-brand); font-weight: var(--font-weight-semibold); }
+
+.sidebar__num {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--theme-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-text-small);
+  font-weight: var(--font-weight-semibold);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: background 0.2s, color 0.2s;
+}
+.sidebar__step-title { display: block; font-weight: var(--font-weight-medium); transition: color 0.2s; }
+.sidebar__subtitle { display: block; font-size: var(--font-size-text-small); color: var(--theme-muted); margin-top: 2px; }
+
+.sidebar__foot {
+  padding: var(--space-4);
+  border-top: 1px solid var(--theme-border-light);
+  font-size: var(--font-size-text-main);
+}
+.sidebar__back-to-top { display: block; color: var(--theme-subtext); margin-bottom: var(--space-2); }
+.sidebar__date { font-size: var(--font-size-text-small); color: var(--theme-muted); }
+
+/* Main Layout */
+.app-layout { padding-top: var(--header-h); min-height: 100vh; }
+.app-content { padding: var(--space-5) var(--space-4); max-width: calc(var(--sidebar-w) + var(--content-max) + var(--space-12)); }
+@media (min-width: 640px) { .app-content { padding: var(--space-8) var(--space-6); } }
+@media (min-width: 1024px) { .app-content { padding: var(--space-10) var(--space-8); } }
+@media (min-width: 1200px) { .app-content { margin-left: var(--sidebar-w); padding: var(--space-12) var(--space-10); } }
+
+/* Page Hero */
+.page-hero {
+  max-width: var(--content-max);
+  margin: 0 auto var(--section-gap);
+  padding-bottom: var(--space-6);
+  border-bottom: 2px solid var(--theme-border-light);
+}
+@media (min-width: 640px) { .page-hero { padding-bottom: var(--space-8); margin-bottom: var(--space-12); } }
+
+.page-hero__eyebrow {
+  font-size: var(--font-size-text-small);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-eastern-blue-600);
+  margin-bottom: var(--space-2);
+}
+.page-hero__title {
+  font-size: var(--font-size-h1);
+  font-weight: 800;
+  color: var(--theme-text);
+  line-height: var(--line-height-h1);
+  letter-spacing: var(--letter-spacing-h1);
+  margin-bottom: var(--space-3);
+}
+.page-hero__desc {
+  font-size: var(--font-size-text-large);
+  color: var(--theme-subtext);
+  line-height: var(--line-height-text);
+  max-width: 640px;
+}
+
+/* Step Section */
+.step-section {
+  max-width: var(--content-max);
+  margin: 0 auto var(--section-gap);
+  border-top: 2px solid var(--theme-border-light);
+  padding-top: var(--space-8);
+}
+@media (min-width: 640px) { .step-section { padding-top: var(--space-10); margin-bottom: var(--space-12); } }
+.step-section:first-of-type { border-top: none; padding-top: 0; }
+
+.step-section__header { margin-bottom: var(--space-6); }
+@media (min-width: 640px) { .step-section__header { margin-bottom: var(--space-8); } }
+
+.step-section__meta { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-3); }
+.step-section__badge {
+  background: var(--theme-brand);
+  color: #fff;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-text-small);
+  font-weight: var(--font-weight-semibold);
+}
+.step-section__title {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  color: var(--theme-text);
+  line-height: var(--line-height-h2);
+  margin-bottom: var(--space-2);
+}
+.step-section__purpose {
+  color: var(--theme-subtext);
+  font-size: var(--font-size-text-large);
+  line-height: var(--line-height-text);
+}
+
+/* Substep */
+.substep {
+  border: 1px solid var(--theme-border-light);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+  background: var(--theme-surface);
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+@media (min-width: 640px) { .substep { margin-bottom: var(--space-6); } }
+
+.substep__inner { padding: var(--space-4); }
+@media (min-width: 640px) { .substep__inner { padding: var(--space-6); } }
+
+.substep__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.substep__badge {
+  background: var(--theme-brand-light);
+  color: var(--theme-brand);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-text-small);
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+}
+.substep__title {
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-semibold);
+  color: var(--theme-text);
+}
+.substep__actor {
+  font-size: var(--font-size-text-small);
+  color: var(--theme-muted);
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--space-1);
+}
+
+.substep__instructions { padding-left: var(--space-5); margin-top: var(--space-3); }
+.substep__instructions li {
+  margin-bottom: var(--space-2);
+  color: var(--theme-text);
+  font-size: var(--font-size-text-main);
+  line-height: var(--line-height-text);
+}
+@media (min-width: 640px) {
+  .substep__instructions li { font-size: var(--font-size-text-large); margin-bottom: var(--space-3); }
+}
+
+/* Image Container */
+.image-container {
+  background: var(--theme-brand-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-5);
+}
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
+/* Callout */
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid;
+  margin-top: var(--space-4);
+  font-size: var(--font-size-text-main);
+}
+@media (min-width: 640px) { .callout { padding: var(--space-4) var(--space-5); } }
+
+.callout--warning { background: var(--warning-bg); border-color: var(--warning-border); color: var(--warning-txt); }
+.callout--info { background: var(--info-bg); border-color: #3B82F6; color: var(--info-txt); }
+.callout--success { background: var(--success-bg); border-color: #22C55E; color: var(--success-txt); }
+.callout--connector { background: var(--color-shark-50); border-color: var(--theme-border); color: var(--theme-subtext); font-style: italic; }
+
+.callout__icon { font-size: 1rem; flex-shrink: 0; line-height: 1.5; }
+.callout__body { line-height: var(--line-height-text); flex: 1; }
+
+/* Decision Point */
+.decision-point {
+  background: var(--cond-bg);
+  border: 1px solid var(--cond-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  margin-top: var(--space-4);
+}
+.decision-point__question {
+  font-weight: var(--font-weight-semibold);
+  color: var(--cond-txt);
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-text-large);
+}
+.decision-point__paths { display: flex; flex-direction: column; gap: var(--space-3); }
+.decision-point__path {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--theme-surface);
+}
+.decision-point__path--yes { border-left: 4px solid #22C55E; }
+.decision-point__path--no { border-left: 4px solid #EF4444; }
+.decision-point__label {
+  font-weight: var(--font-weight-bold);
+  margin-right: var(--space-2);
+}
+
+/* Roles Table */
+.roles-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-4);
+  font-size: var(--font-size-text-main);
+}
+.roles-table th {
+  background: var(--theme-brand-light);
+  color: var(--theme-brand);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-weight: var(--font-weight-semibold);
+}
+.roles-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--theme-border-light);
+  vertical-align: top;
+}
+.roles-table tr:hover td { background: var(--theme-background); }
+
+/* Prereq Box */
+.prereq-box {
+  background: var(--info-bg);
+  border: 1px solid var(--info-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  color: var(--info-txt);
+}
+
+/* Step Nav */
+.step-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 640px) {
+  .step-nav { flex-direction: row; justify-content: center; gap: var(--space-4); }
+}
+.step-nav__btn {
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-text-main);
+  font-weight: var(--font-weight-medium);
+  border: 1.5px solid var(--theme-brand);
+  color: var(--theme-brand);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  text-align: center;
+  transition: background 0.15s;
+}
+.step-nav__btn:hover { background: var(--theme-brand-light); text-decoration: none; }
+
+/* Print */
+@media print {
+  .site-header, .sidebar, .sidebar-overlay, .hamburger, .lang-selector, .scroll-progress, .step-nav { display: none !important; }
+  .app-layout { padding-top: 0; }
+  .app-content { margin-left: 0; padding: 0; max-width: none; }
+}
+  </style>
+</head>
+<body id="top" data-lang="en">
+
+  <!-- Progress Bar -->
+  <div class="scroll-progress">
+    <div class="scroll-bar" id="scrollBar"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="#top" class="site-header__brand">
+      <img src="./assets/brand/brand_lightmetrics-logo.webp" alt="Lightmetrics" class="brand-logo-img">
+      <span class="brand-divider"></span>
+      <span class="brand-text">
+        <span class="brand-name">
+          <span data-lang="en">Workflow Guide</span>
+          <span data-lang="es">Guía de Flujo</span>
+          <span data-lang="fr">Guide de Flux</span>
+        </span>
+        <span class="brand-sub">Navixy Reseller Onboarding</span>
+      </span>
+    </a>
+
+    <div class="header-right">
+      <div class="lang-selector">
+        <select class="lang-selector__dropdown" id="langSelect" aria-label="Select language">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+        </select>
+      </div>
+
+      <button class="hamburger" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__head">
+      <span>
+        <span data-lang="en">Process Stages</span>
+        <span data-lang="es">Etapas del Proceso</span>
+        <span data-lang="fr">Étapes du Processus</span>
+      </span>
+      <button class="sidebar__close" id="sidebarClose" aria-label="Close menu">✕</button>
+    </div>
+
+    <ul class="sidebar__list">
+      <li>
+        <a href="#overview" class="sidebar__link">
+          <span class="sidebar__num">1</span>
+          <span class="sidebar__text">
+            <span class="sidebar__step-title">
+              <span data-lang="en">Overview</span>
+              <span data-lang="es">Resumen</span>
+              <span data-lang="fr">Aperçu</span>
+            </span>
+            <span class="sidebar__subtitle">
+              <span data-lang="en">Scope & Roles</span>
+              <span data-lang="es">Alcance y Roles</span>
+              <span data-lang="fr">Portée et Rôles</span>
+            </span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#stage-1" class="sidebar__link">
+          <span class="sidebar__num">2</span>
+          <span class="sidebar__text">
+            <span class="sidebar__step-title">
+              <span data-lang="en">Stage 1: Pilot Phase</span>
+              <span data-lang="es">Etapa 1: Fase Piloto</span>
+              <span data-lang="fr">Étape 1: Phase Pilote</span>
+            </span>
+            <span class="sidebar__subtitle">
+              <span data-lang="en">3 substeps</span>
+              <span data-lang="es">3 subpasos</span>
+              <span data-lang="fr">3 sous-étapes</span>
+            </span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#stage-2" class="sidebar__link">
+          <span class="sidebar__num">3</span>
+          <span class="sidebar__text">
+            <span class="sidebar__step-title">
+              <span data-lang="en">Stage 2: Pilot → Production</span>
+              <span data-lang="es">Etapa 2: Piloto → Producción</span>
+              <span data-lang="fr">Étape 2: Pilote → Production</span>
+            </span>
+            <span class="sidebar__subtitle">
+              <span data-lang="en">1 decision point</span>
+              <span data-lang="es">1 punto de decisión</span>
+              <span data-lang="fr">1 point de décision</span>
+            </span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#stage-3" class="sidebar__link">
+          <span class="sidebar__num">4</span>
+          <span class="sidebar__text">
+            <span class="sidebar__step-title">
+              <span data-lang="en">Stage 3: Device Addition</span>
+              <span data-lang="es">Etapa 3: Adición de Dispositivos</span>
+              <span data-lang="fr">Étape 3: Ajout d'Appareils</span>
+            </span>
+            <span class="sidebar__subtitle">
+              <span data-lang="en">4 substeps</span>
+              <span data-lang="es">4 subpasos</span>
+              <span data-lang="fr">4 sous-étapes</span>
+            </span>
+          </span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="sidebar__foot">
+      <a href="#top" class="sidebar__back-to-top">
+        <span data-lang="en">↑ Back to top</span>
+        <span data-lang="es">↑ Volver arriba</span>
+        <span data-lang="fr">↑ Retour en haut</span>
+      </a>
+      <p class="sidebar__date">
+        <span data-lang="en">Last updated: April 2026</span>
+        <span data-lang="es">Última actualización: Abril 2026</span>
+        <span data-lang="fr">Dernière mise à jour: Avril 2026</span>
+      </p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="app-layout">
+    <main class="app-content">
+
+      <!-- Hero -->
+      <div class="page-hero">
+        <p class="page-hero__eyebrow">LIGHTMETRICS SALES / OPERATIONS</p>
+        <h1 class="page-hero__title">
+          <span data-lang="en">Navixy Reseller Onboarding</span>
+          <span data-lang="es">Incorporación de Revendedores Navixy</span>
+          <span data-lang="fr">Intégration des Revendeurs Navixy</span>
+        </h1>
+        <p class="page-hero__desc">
+          <span data-lang="en">End-to-end workflow from Pilot to Production with Device Addition</span>
+          <span data-lang="es">Flujo de trabajo integral desde Piloto hasta Producción con Adición de Dispositivos</span>
+          <span data-lang="fr">Flux de travail complet du Pilote à la Production avec Ajout d'Appareils</span>
+        </p>
+      </div>
+
+      <!-- Section 1: Overview -->
+      <section class="step-section" id="overview">
+        <div class="step-section__header">
+          <div class="step-section__meta">
+            <span class="step-section__badge">
+              <span data-lang="en">Overview</span>
+              <span data-lang="es">Resumen</span>
+              <span data-lang="fr">Aperçu</span>
+            </span>
+          </div>
+          <h2 class="step-section__title">
+            <span data-lang="en">Process Overview</span>
+            <span data-lang="es">Resumen del Proceso</span>
+            <span data-lang="fr">Aperçu du Processus</span>
+          </h2>
+          <p class="step-section__purpose">
+            <span data-lang="en">This document describes the complete workflow for onboarding a new reseller onto the Navixy portal integrated with LightMetrics. It covers three sequential stages: setting up a pilot account, transferring from pilot to production, and adding devices in production.</span>
+            <span data-lang="es">Este documento describe el flujo de trabajo completo para la incorporación de un nuevo revendedor en el portal de Navixy integrado con LightMetrics. Cubre tres etapas secuenciales: configuración de una cuenta piloto, transferencia de piloto a producción y adición de dispositivos en producción.</span>
+            <span data-lang="fr">Ce document décrit le flux de travail complet pour l'intégration d'un nouveau revendeur sur le portail Navixy intégré à LightMetrics. Il couvre trois étapes séquentielles : la mise en place d'un compte pilote, le transfert du pilote à la production et l'ajout d'appareils en production.</span>
+          </p>
+        </div>
+
+        <!-- Scope -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">0.1</span>
+              <h3 class="substep__title">
+                <span data-lang="en">Scope</span>
+                <span data-lang="es">Alcance</span>
+                <span data-lang="fr">Portée</span>
+              </h3>
+            </div>
+            <ul class="substep__instructions">
+              <li>
+                <span data-lang="en">Navixy platform onboarding and LightMetrics Master Portal configuration</span>
+                <span data-lang="es">Incorporación en la plataforma Navixy y configuración del Portal Maestro de LightMetrics</span>
+                <span data-lang="fr">Intégration à la plateforme Navixy et configuration du Portail Maître LightMetrics</span>
+              </li>
+              <li>
+                <span data-lang="en">Account creation, tagging, device provisioning, and fleet management</span>
+                <span data-lang="es">Creación de cuentas, etiquetado, aprovisionamiento de dispositivos y gestión de flotas</span>
+                <span data-lang="fr">Création de comptes, balisage, provisionnement d'appareils et gestion de flottes</span>
+              </li>
+            </ul>
+
+            <div style="margin-top: var(--space-6); padding: var(--space-4); background: var(--theme-brand-light); border-radius: var(--radius-lg); text-align: center;">
+              <strong style="color: var(--theme-brand);">
+                <span data-lang="en">Process Flow:</span>
+                <span data-lang="es">Flujo del Proceso:</span>
+                <span data-lang="fr">Flux du Processus:</span>
+              </strong>
+              <div style="margin-top: var(--space-2); font-size: var(--font-size-text-large);">
+                <span data-lang="en">Pilot Phase → Transfer to Production → Device Addition</span>
+                <span data-lang="es">Fase Piloto → Transferencia a Producción → Adición de Dispositivos</span>
+                <span data-lang="fr">Phase Pilote → Transfert en Production → Ajout d'Appareils</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Roles -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">0.2</span>
+              <h3 class="substep__title">
+                <span data-lang="en">Roles & Responsibilities</span>
+                <span data-lang="es">Roles y Responsabilidades</span>
+                <span data-lang="fr">Rôles et Responsabilités</span>
+              </h3>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="roles-table">
+                <thead>
+                  <tr>
+                    <th>
+                      <span data-lang="en">Role</span>
+                      <span data-lang="es">Rol</span>
+                      <span data-lang="fr">Rôle</span>
+                    </th>
+                    <th>
+                      <span data-lang="en">Description</span>
+                      <span data-lang="es">Descripción</span>
+                      <span data-lang="fr">Description</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Navixy Portal Admin</strong></td>
+                    <td>
+                      <span data-lang="en">Creates reseller accounts on the Navixy portal. Does not manage fleet accounts — fleet management is the responsibility of each Reseller Admin.</span>
+                      <span data-lang="es">Crea cuentas de revendedores en el portal de Navixy. No gestiona las cuentas de flotas — la gestión de flotas es responsabilidad de cada Administrador de Revendedor.</span>
+                      <span data-lang="fr">Crée les comptes revendeurs sur le portail Navixy. Ne gère pas les comptes de flottes — la gestion des flottes relève de chaque Administrateur Revendeur.</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Lightmetrics Sales Engineer</strong></td>
+                    <td>
+                      <span data-lang="en">Manages Master Portal accounts, tagging, and device provisioning</span>
+                      <span data-lang="es">Administra cuentas del Portal Maestro, etiquetado y aprovisionamiento de dispositivos</span>
+                      <span data-lang="fr">Gère les comptes du Portail Maître, le balisage et le provisionnement des appareils</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Reseller Admin</strong></td>
+                    <td>
+                      <span data-lang="en">Each reseller account has a Reseller Admin who is responsible for managing fleet accounts associated with their reseller account on the us.navixy master portal.</span>
+                      <span data-lang="es">Cada cuenta de revendedor tiene un Administrador de Revendedor que es responsable de gestionar las cuentas de flota asociadas a su cuenta de revendedor en el portal maestro de us.navixy.</span>
+                      <span data-lang="fr">Chaque compte revendeur dispose d'un Administrateur Revendeur responsable de la gestion des comptes de flotte associés à son compte revendeur sur le portail maître us.navixy.</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Reseller Fleet User</strong></td>
+                    <td>
+                      <span data-lang="en">End user who can access the fleet account on the Navixy portal. After iFrame integration is complete, Fleet Users can view RideView pages on the Navixy portal.</span>
+                      <span data-lang="es">Usuario final que puede acceder a la cuenta de flota en el portal de Navixy. Una vez completada la integración de iFrame, los Usuarios de Flota pueden visualizar las páginas de RideView en el portal de Navixy.</span>
+                      <span data-lang="fr">Utilisateur final qui peut accéder au compte de flotte sur le portail Navixy. Une fois l'intégration iFrame terminée, les Utilisateurs de Flotte peuvent consulter les pages RideView sur le portail Navixy.</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prerequisites -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">0.3</span>
+              <h3 class="substep__title">
+                <span data-lang="en">Prerequisites</span>
+                <span data-lang="es">Prerrequisitos</span>
+                <span data-lang="fr">Prérequis</span>
+              </h3>
+            </div>
+            <div class="prereq-box">
+              <span data-lang="en">Before starting the onboarding process, Navixy has to integrate Lightmetrics List Fleets API.</span>
+              <span data-lang="es">Antes de iniciar el proceso de incorporación, Navixy debe integrar la API de Lista de Flotas de Lightmetrics.</span>
+              <span data-lang="fr">Avant de commencer le processus d'intégration, Navixy doit intégrer l'API de Liste des Flottes de Lightmetrics.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stage 1: Pilot Phase -->
+      <section class="step-section" id="stage-1">
+        <div class="step-section__header">
+          <div class="step-section__meta">
+            <span class="step-section__badge">
+              <span data-lang="en">Stage 1</span>
+              <span data-lang="es">Etapa 1</span>
+              <span data-lang="fr">Étape 1</span>
+            </span>
+          </div>
+          <h2 class="step-section__title">
+            <span data-lang="en">Pilot Phase: New Reseller Onboarding</span>
+            <span data-lang="es">Fase Piloto: Incorporación de Nuevo Revendedor</span>
+            <span data-lang="fr">Phase Pilote: Intégration d'un Nouveau Revendeur</span>
+          </h2>
+          <p class="step-section__purpose">
+            <span data-lang="en">Set up the initial pilot account involving Navixy Portal Admin, LightMetrics Sales Engineer, and the Reseller Admin.</span>
+            <span data-lang="es">Configure la cuenta piloto inicial involucrando al Administrador del Portal Navixy, Ingeniero de Ventas de LightMetrics y el Administrador del Revendedor.</span>
+            <span data-lang="fr">Configurez le compte pilote initial impliquant l'Administrateur Portail Navixy, l'Ingénieur Commercial LightMetrics et l'Administrateur Revendeur.</span>
+          </p>
+        </div>
+
+        <!-- 1.1 Navixy Portal -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">1.1</span>
+              <div>
+                <h3 class="substep__title">
+                  <span data-lang="en">Navixy Portal</span>
+                  <span data-lang="es">Portal de Navixy</span>
+                  <span data-lang="fr">Portail Navixy</span>
+                </h3>
+                <p class="substep__actor">
+                  <span data-lang="en">Actor: Navixy Portal Admin</span>
+                  <span data-lang="es">Actor: Administrador del Portal Navixy</span>
+                  <span data-lang="fr">Acteur: Administrateur Portail Navixy</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="callout callout--info">
+              <span class="callout__icon">ℹ️</span>
+              <div class="callout__body">
+                <strong>
+                  <span data-lang="en">Prerequisite:</span>
+                  <span data-lang="es">Prerrequisito:</span>
+                  <span data-lang="fr">Prérequis:</span>
+                </strong>
+                <span data-lang="en"> In this step, a user needs to be created to generate a user ID.</span>
+                <span data-lang="es"> En este paso, se necesita crear un usuario para generar un ID de usuario.</span>
+                <span data-lang="fr"> À cette étape, un utilisateur doit être créé pour générer un identifiant utilisateur.</span>
+              </div>
+            </div>
+
+            <ol class="substep__instructions">
+              <li>
+                <strong>
+                  <span data-lang="en">Create the fleet</span>
+                  <span data-lang="es">Crear la flota</span>
+                  <span data-lang="fr">Créer la flotte</span>
+                </strong>
+                <span data-lang="en"> — In the Navixy Portal, the Navixy Admin creates a new fleet with the Reseller's Name.</span>
+                <span data-lang="es"> — En el Portal de Navixy, el Administrador de Navixy crea una nueva flota con el Nombre del Revendedor.</span>
+                <span data-lang="fr"> — Dans le Portail Navixy, l'Administrateur Navixy crée une nouvelle flotte avec le Nom du Revendeur.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Temporary sign-up email</span>
+                  <span data-lang="es">Correo electrónico temporal de registro</span>
+                  <span data-lang="fr">Email d'inscription temporaire</span>
+                </strong>
+                <span data-lang="en"> — The system sends a temporary (password) sign-up email to the Reseller.</span>
+                <span data-lang="es"> — El sistema envía un correo electrónico temporal (con contraseña) de registro al Revendedor.</span>
+                <span data-lang="fr"> — Le système envoie un email d'inscription temporaire (avec mot de passe) au Revendeur.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Reseller logs in</span>
+                  <span data-lang="es">El Revendedor inicia sesión</span>
+                  <span data-lang="fr">Le Revendeur se connecte</span>
+                </strong>
+                <span data-lang="en"> — The Reseller receives the email and logs into the Navixy Portal.</span>
+                <span data-lang="es"> — El Revendedor recibe el correo y accede al Portal de Navixy.</span>
+                <span data-lang="fr"> — Le Revendeur reçoit l'email et se connecte au Portail Navixy.</span>
+              </li>
+            </ol>
+
+            <figure class="image-container">
+              <img src="./assets/screenshots/phase1-step2-navixy-create-account.png" alt="Navixy Panel Users page showing user list with IDs, Full name, Balance, Devices, and Login columns" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <!-- 1.2 Lightmetrics Master Portal -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">1.2</span>
+              <div>
+                <h3 class="substep__title">
+                  <span data-lang="en">Lightmetrics Master Portal</span>
+                  <span data-lang="es">Portal Maestro de Lightmetrics</span>
+                  <span data-lang="fr">Portail Maître Lightmetrics</span>
+                </h3>
+                <p class="substep__actor">
+                  <span data-lang="en">Actor: Lightmetrics Sales Engineer</span>
+                  <span data-lang="es">Actor: Ingeniero de Ventas de Lightmetrics</span>
+                  <span data-lang="fr">Acteur: Ingénieur Commercial Lightmetrics</span>
+                </p>
+              </div>
+            </div>
+
+            <ol class="substep__instructions">
+              <li>
+                <strong>
+                  <span data-lang="en">Navigate to Accounts</span>
+                  <span data-lang="es">Navegar a Cuentas</span>
+                  <span data-lang="fr">Naviguer vers Comptes</span>
+                </strong>
+                <span data-lang="en"> — In the LightMetrics Master Portal, navigate to the <strong>Accounts</strong> section.</span>
+                <span data-lang="es"> — En el Portal Maestro de LightMetrics, navegue a la sección de <strong>Cuentas</strong>.</span>
+                <span data-lang="fr"> — Dans le Portail Maître LightMetrics, naviguez vers la section <strong>Comptes</strong>.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Click Add Accounts</span>
+                  <span data-lang="es">Hacer clic en Agregar Cuentas</span>
+                  <span data-lang="fr">Cliquer sur Ajouter des Comptes</span>
+                </strong>
+                <span data-lang="en"> — Click the <strong>Add Accounts</strong> button.</span>
+                <span data-lang="es"> — Haga clic en el botón <strong>Agregar Cuentas</strong>.</span>
+                <span data-lang="fr"> — Cliquez sur le bouton <strong>Ajouter des Comptes</strong>.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Enter Account ID and tag</span>
+                  <span data-lang="es">Ingresar ID de cuenta y etiquetar</span>
+                  <span data-lang="fr">Saisir l'identifiant de compte et baliser</span>
+                </strong>
+                <span data-lang="en"> — Enter the user ID from Navixy as the <strong>Account ID</strong> when creating a new Reseller account, and tag it as <strong>presales</strong>.</span>
+                <span data-lang="es"> — Ingrese el ID de usuario de Navixy como el <strong>ID de Cuenta</strong> al crear una nueva cuenta de Revendedor, y etiquétela como <strong>presales</strong>.</span>
+                <span data-lang="fr"> — Saisissez l'identifiant utilisateur de Navixy comme <strong>ID de Compte</strong> lors de la création d'un nouveau compte Revendeur, et balisez-le comme <strong>presales</strong>.</span>
+              </li>
+            </ol>
+
+            <div class="callout callout--warning">
+              <span class="callout__icon">⚠️</span>
+              <div class="callout__body">
+                <strong>
+                  <span data-lang="en">Important:</span>
+                  <span data-lang="es">Importante:</span>
+                  <span data-lang="fr">Important:</span>
+                </strong>
+                <span data-lang="en"> Accounts created with the <strong>Sales</strong> tag will NOT have access to the Navixy Master Portal. They will only be able to view Navixy screens (Dashboard / RideView / etc.) via the Navixy portal.</span>
+                <span data-lang="es"> Las cuentas creadas con la etiqueta <strong>Sales</strong> NO tendrán acceso al Portal Maestro de Navixy. Solo podrán visualizar las pantallas de Navixy (Dashboard / RideView / etc.) a través del portal de Navixy.</span>
+                <span data-lang="fr"> Les comptes créés avec le tag <strong>Sales</strong> n'auront PAS accès au Portail Maître Navixy. Ils ne pourront consulter les écrans Navixy (Tableau de bord / RideView / etc.) que via le portail Navixy.</span>
+              </div>
+            </div>
+
+            <figure class="image-container">
+              <img src="./assets/screenshots/phase1-step3-lightmetrics-add-account.png" alt="LightMetrics Master Portal Add Account form showing Account ID, Account Name, and Tag Account fields with presales tag selected" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <!-- 1.3 Navixy Integration -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">1.3</span>
+              <div>
+                <h3 class="substep__title">
+                  <span data-lang="en">Navixy Integration</span>
+                  <span data-lang="es">Integración de Navixy</span>
+                  <span data-lang="fr">Intégration Navixy</span>
+                </h3>
+                <p class="substep__actor">
+                  <span data-lang="en">Actor: Reseller Admin</span>
+                  <span data-lang="es">Actor: Administrador del Revendedor</span>
+                  <span data-lang="fr">Acteur: Administrateur Revendeur</span>
+                </p>
+              </div>
+            </div>
+
+            <ol class="substep__instructions">
+              <li>
+                <strong>
+                  <span data-lang="en">Integrate LightMetrics in Navixy portal</span>
+                  <span data-lang="es">Integrar LightMetrics en el portal de Navixy</span>
+                  <span data-lang="fr">Intégrer LightMetrics dans le portail Navixy</span>
+                </strong>
+                <span data-lang="en"> — Follow the <a href="https://docs.navixy.com" target="_blank">Navixy Documentation</a> to complete the LightMetrics integration within the Navixy portal.</span>
+                <span data-lang="es"> — Siga la <a href="https://docs.navixy.com" target="_blank">Documentación de Navixy</a> para completar la integración de LightMetrics dentro del portal de Navixy.</span>
+                <span data-lang="fr"> — Suivez la <a href="https://docs.navixy.com" target="_blank">Documentation Navixy</a> pour compléter l'intégration LightMetrics dans le portail Navixy.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Verify RideView access</span>
+                  <span data-lang="es">Verificar acceso a RideView</span>
+                  <span data-lang="fr">Vérifier l'accès à RideView</span>
+                </strong>
+                <span data-lang="en"> — Once integration is complete, the Reseller Fleet can view RideView screens on Navixy.</span>
+                <span data-lang="es"> — Una vez completada la integración, la Flota del Revendedor puede visualizar las pantallas de RideView en Navixy.</span>
+                <span data-lang="fr"> — Une fois l'intégration terminée, la Flotte du Revendeur peut consulter les écrans RideView sur Navixy.</span>
+              </li>
+            </ol>
+
+            <figure class="image-container">
+              <img src="./assets/screenshots/phase1-step4-iframe-integration.png" alt="Navixy Documentation page showing Embedding Lightmetrics in Navixy UI instructions with API key creation steps" loading="lazy">
+            </figure>
+
+            <figure class="image-container" style="margin-top: var(--space-4);">
+              <img src="./assets/screenshots/phase1-step5-rideview-iframe.png" alt="RideView dashboard embedded in Navixy showing trips, distance, events per 100 kilometers, duration, event highlights, and event trend analytics" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stage 2: Pilot → Production -->
+      <section class="step-section" id="stage-2">
+        <div class="step-section__header">
+          <div class="step-section__meta">
+            <span class="step-section__badge">
+              <span data-lang="en">Stage 2</span>
+              <span data-lang="es">Etapa 2</span>
+              <span data-lang="fr">Étape 2</span>
+            </span>
+          </div>
+          <h2 class="step-section__title">
+            <span data-lang="en">Reseller Transfer: Pilot → Production</span>
+            <span data-lang="es">Transferencia del Revendedor: Piloto → Producción</span>
+            <span data-lang="fr">Transfert Revendeur: Pilote → Production</span>
+          </h2>
+          <p class="step-section__purpose">
+            <span data-lang="en">Move the reseller from pilot status to full production access.</span>
+            <span data-lang="es">Mueva al revendedor del estado piloto al acceso completo de producción.</span>
+            <span data-lang="fr">Faites passer le revendeur du statut pilote à l'accès production complet.</span>
+          </p>
+        </div>
+
+        <!-- 2.1 Trigger -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">2.1</span>
+              <h3 class="substep__title">
+                <span data-lang="en">Trigger</span>
+                <span data-lang="es">Disparador</span>
+                <span data-lang="fr">Déclencheur</span>
+              </h3>
+            </div>
+            <p style="font-size: var(--font-size-text-large); color: var(--theme-text);">
+              <span data-lang="en">The Pilot Reseller confirms readiness and requests a LightMetrics Master portal account.</span>
+              <span data-lang="es">El Revendedor Piloto confirma que está listo y solicita una cuenta en el Portal Maestro de LightMetrics.</span>
+              <span data-lang="fr">Le Revendeur Pilote confirme qu'il est prêt et demande un compte sur le Portail Maître LightMetrics.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 2.2 LightMetrics Process -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">2.2</span>
+              <div>
+                <h3 class="substep__title">
+                  <span data-lang="en">LightMetrics Process</span>
+                  <span data-lang="es">Proceso de LightMetrics</span>
+                  <span data-lang="fr">Processus LightMetrics</span>
+                </h3>
+                <p class="substep__actor">
+                  <span data-lang="en">Actor: Lightmetrics Sales Engineer</span>
+                  <span data-lang="es">Actor: Ingeniero de Ventas de Lightmetrics</span>
+                  <span data-lang="fr">Acteur: Ingénieur Commercial Lightmetrics</span>
+                </p>
+              </div>
+            </div>
+
+            <ol class="substep__instructions">
+              <li>
+                <strong>
+                  <span data-lang="en">Create a new tag</span>
+                  <span data-lang="es">Crear una nueva etiqueta</span>
+                  <span data-lang="fr">Créer un nouveau tag</span>
+                </strong>
+                <span data-lang="en"> — In the Master Portal, create a new tag specific to this reseller.</span>
+                <span data-lang="es"> — En el Portal Maestro, cree una nueva etiqueta específica para este revendedor.</span>
+                <span data-lang="fr"> — Dans le Portail Maître, créez un nouveau tag spécifique à ce revendeur.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Change account tag</span>
+                  <span data-lang="es">Cambiar la etiqueta de la cuenta</span>
+                  <span data-lang="fr">Modifier le tag du compte</span>
+                </strong>
+                <span data-lang="en"> — Update the account tag from <strong>presales</strong> to the <strong>Reseller's tag</strong>.</span>
+                <span data-lang="es"> — Actualice la etiqueta de la cuenta de <strong>presales</strong> a la <strong>etiqueta del Revendedor</strong>.</span>
+                <span data-lang="fr"> — Mettez à jour le tag du compte de <strong>presales</strong> vers le <strong>tag du Revendeur</strong>.</span>
+              </li>
+            </ol>
+
+            <figure class="image-container">
+              <img src="./assets/screenshots/phase2-step2a-create-tag.png" alt="LightMetrics Attribute Details dialog showing how to create a new Reseller tag with ACCESS type" loading="lazy">
+            </figure>
+
+            <figure class="image-container" style="margin-top: var(--space-4);">
+              <img src="./assets/screenshots/phase2-step2b-change-tag.png" alt="LightMetrics Edit Account page showing tag dropdown with RESELLER, self-managed, presales, and DLA options" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <!-- 2.3 Decision Point -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">2.3</span>
+              <h3 class="substep__title">
+                <span data-lang="en">Decision Point — iFrame Integration</span>
+                <span data-lang="es">Punto de Decisión — Integración iFrame</span>
+                <span data-lang="fr">Point de Décision — Intégration iFrame</span>
+              </h3>
+            </div>
+
+            <div class="decision-point">
+              <p class="decision-point__question">
+                <span data-lang="en">Is iFrame integration already complete in Pilot?</span>
+                <span data-lang="es">¿La integración de iFrame ya está completa en Piloto?</span>
+                <span data-lang="fr">L'intégration iFrame est-elle déjà terminée en Pilote?</span>
+              </p>
+              <div class="decision-point__paths">
+                <div class="decision-point__path decision-point__path--yes">
+                  <span class="decision-point__label">
+                    <span data-lang="en">YES</span>
+                    <span data-lang="es">SÍ</span>
+                    <span data-lang="fr">OUI</span>
+                  </span>
+                  <span data-lang="en">→ The Reseller Fleet can already view RideView screens on Navixy. No further action is needed. Proceed to Stage 3.</span>
+                  <span data-lang="es">→ La Flota del Revendedor ya puede visualizar las pantallas de RideView en Navixy. No se necesitan más acciones. Proceda a la Etapa 3.</span>
+                  <span data-lang="fr">→ La Flotte du Revendeur peut déjà consulter les écrans RideView sur Navixy. Aucune action supplémentaire n'est nécessaire. Passez à l'Étape 3.</span>
+                </div>
+                <div class="decision-point__path decision-point__path--no">
+                  <span class="decision-point__label">
+                    <span data-lang="en">NO</span>
+                    <span data-lang="es">NO</span>
+                    <span data-lang="fr">NON</span>
+                  </span>
+                  <span data-lang="en">→ Complete the Navixy integration first (follow <a href="https://docs.navixy.com" target="_blank">Navixy Documentation</a>), verify RideView access, then proceed to Stage 3.</span>
+                  <span data-lang="es">→ Complete primero la integración de Navixy (siga la <a href="https://docs.navixy.com" target="_blank">Documentación de Navixy</a>), verifique el acceso a RideView, luego proceda a la Etapa 3.</span>
+                  <span data-lang="fr">→ Complétez d'abord l'intégration Navixy (suivez la <a href="https://docs.navixy.com" target="_blank">Documentation Navixy</a>), vérifiez l'accès RideView, puis passez à l'Étape 3.</span>
+                </div>
+              </div>
+            </div>
+
+            <figure class="image-container" style="margin-top: var(--space-4);">
+              <img src="./assets/screenshots/phase2-step4-integration.png" alt="Navixy Documentation showing iFrame integration steps for embedding LightMetrics in Navixy UI" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stage 3: Device Addition -->
+      <section class="step-section" id="stage-3">
+        <div class="step-section__header">
+          <div class="step-section__meta">
+            <span class="step-section__badge">
+              <span data-lang="en">Stage 3</span>
+              <span data-lang="es">Etapa 3</span>
+              <span data-lang="fr">Étape 3</span>
+            </span>
+          </div>
+          <h2 class="step-section__title">
+            <span data-lang="en">Production: Device Addition</span>
+            <span data-lang="es">Producción: Adición de Dispositivos</span>
+            <span data-lang="fr">Production: Ajout d'Appareils</span>
+          </h2>
+          <p class="step-section__purpose">
+            <span data-lang="en">Add and provision devices for reseller fleets in production.</span>
+            <span data-lang="es">Agregue y aprovisione dispositivos para las flotas del revendedor en producción.</span>
+            <span data-lang="fr">Ajoutez et provisionnez des appareils pour les flottes revendeur en production.</span>
+          </p>
+        </div>
+
+        <!-- 6.1 / 3.1 Reseller Creates Account -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">3.1</span>
+              <div>
+                <h3 class="substep__title">
+                  <span data-lang="en">Reseller Creates a New Account</span>
+                  <span data-lang="es">El Revendedor Crea una Nueva Cuenta</span>
+                  <span data-lang="fr">Le Revendeur Crée un Nouveau Compte</span>
+                </h3>
+                <p class="substep__actor">
+                  <span data-lang="en">Actor: Reseller Admin</span>
+                  <span data-lang="es">Actor: Administrador del Revendedor</span>
+                  <span data-lang="fr">Acteur: Administrateur Revendeur</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="callout callout--info" style="margin-bottom: var(--space-4);">
+              <span class="callout__icon">ℹ️</span>
+              <div class="callout__body">
+                <span data-lang="en">The Reseller Admin follows the same steps that the Lightmetrics Sales Engineer used to create the reseller's own account in Stage 1. First, generate a user ID from the Navixy portal, then create the account on the LightMetrics Master Portal using that same user ID.</span>
+                <span data-lang="es">El Administrador del Revendedor sigue los mismos pasos que el Ingeniero de Ventas de Lightmetrics utilizó para crear la cuenta del revendedor en la Etapa 1. Primero, genere un ID de usuario desde el portal de Navixy, luego cree la cuenta en el Portal Maestro de LightMetrics usando ese mismo ID de usuario.</span>
+                <span data-lang="fr">L'Administrateur Revendeur suit les mêmes étapes que l'Ingénieur Commercial Lightmetrics a utilisées pour créer le compte du revendeur à l'Étape 1. D'abord, générez un identifiant utilisateur depuis le portail Navixy, puis créez le compte sur le Portail Maître LightMetrics en utilisant ce même identifiant.</span>
+              </div>
+            </div>
+
+            <ol class="substep__instructions">
+              <li>
+                <strong>
+                  <span data-lang="en">Create a fleet on the Navixy Portal</span>
+                  <span data-lang="es">Crear una flota en el Portal de Navixy</span>
+                  <span data-lang="fr">Créer une flotte sur le Portail Navixy</span>
+                </strong>
+                <span data-lang="en"> — Log into <strong>Navixy's</strong> master portal using your reseller account, navigate to <strong>Accounts</strong>, and create a new fleet account. This generates a <strong>user ID</strong>.</span>
+                <span data-lang="es"> — Inicie sesión en el portal maestro de <strong>Navixy</strong> usando su cuenta de revendedor, navegue a <strong>Cuentas</strong> y cree una nueva cuenta de flota. Esto genera un <strong>ID de usuario</strong>.</span>
+                <span data-lang="fr"> — Connectez-vous au portail maître de <strong>Navixy</strong> avec votre compte revendeur, naviguez vers <strong>Comptes</strong> et créez un nouveau compte de flotte. Cela génère un <strong>identifiant utilisateur</strong>.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Create an account on the LightMetrics Master Portal</span>
+                  <span data-lang="es">Crear una cuenta en el Portal Maestro de LightMetrics</span>
+                  <span data-lang="fr">Créer un compte sur le Portail Maître LightMetrics</span>
+                </strong>
+                <span data-lang="en"> — Navigate to <strong>Accounts → Add Account</strong> in the LightMetrics Master Portal. Enter the <strong>user ID</strong> from the Navixy portal as the <strong>Account ID</strong>, add the account name, and click <strong>Save</strong>.</span>
+                <span data-lang="es"> — Navegue a <strong>Cuentas → Agregar Cuenta</strong> en el Portal Maestro de LightMetrics. Ingrese el <strong>ID de usuario</strong> del portal de Navixy como el <strong>ID de Cuenta</strong>, agregue el nombre de la cuenta y haga clic en <strong>Guardar</strong>.</span>
+                <span data-lang="fr"> — Naviguez vers <strong>Comptes → Ajouter un Compte</strong> dans le Portail Maître LightMetrics. Saisissez l'<strong>identifiant utilisateur</strong> du portail Navixy comme <strong>ID de Compte</strong>, ajoutez le nom du compte et cliquez sur <strong>Enregistrer</strong>.</span>
+              </li>
+            </ol>
+
+            <div class="callout callout--connector">
+              <span class="callout__icon">↕</span>
+              <div class="callout__body">
+                <span data-lang="en">The reseller sends a request to LightMetrics for new devices.</span>
+                <span data-lang="es">El revendedor envía una solicitud a LightMetrics para nuevos dispositivos.</span>
+                <span data-lang="fr">Le revendeur envoie une demande à LightMetrics pour de nouveaux appareils.</span>
+              </div>
+            </div>
+
+            <figure class="image-container">
+              <img src="./assets/screenshots/phase3-step1-reseller-add-account.png" alt="LightMetrics Master Portal Add Account form for reseller showing Account ID 1678563 and Account Name ABC Transport" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <!-- 3.2 LightMetrics Adds Devices -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">3.2</span>
+              <div>
+                <h3 class="substep__title">
+                  <span data-lang="en">LightMetrics Adds Devices</span>
+                  <span data-lang="es">LightMetrics Agrega Dispositivos</span>
+                  <span data-lang="fr">LightMetrics Ajoute des Appareils</span>
+                </h3>
+                <p class="substep__actor">
+                  <span data-lang="en">Actor: Lightmetrics Sales Engineer</span>
+                  <span data-lang="es">Actor: Ingeniero de Ventas de Lightmetrics</span>
+                  <span data-lang="fr">Acteur: Ingénieur Commercial Lightmetrics</span>
+                </p>
+              </div>
+            </div>
+
+            <p style="margin-bottom: var(--space-3); color: var(--theme-subtext);">
+              <span data-lang="en">LightMetrics will add new devices (IMEIs) on the Navixy Master Portal as requested.</span>
+              <span data-lang="es">LightMetrics agregará nuevos dispositivos (IMEIs) en el Portal Maestro de Navixy según lo solicitado.</span>
+              <span data-lang="fr">LightMetrics ajoutera de nouveaux appareils (IMEI) sur le Portail Maître Navixy selon la demande.</span>
+            </p>
+
+            <ol class="substep__instructions">
+              <li>
+                <strong>
+                  <span data-lang="en">Navigate to Devices</span>
+                  <span data-lang="es">Navegar a Dispositivos</span>
+                  <span data-lang="fr">Naviguer vers Appareils</span>
+                </strong>
+                <span data-lang="en"> — Go to the <strong>Devices</strong> section in the portal.</span>
+                <span data-lang="es"> — Vaya a la sección de <strong>Dispositivos</strong> en el portal.</span>
+                <span data-lang="fr"> — Allez à la section <strong>Appareils</strong> dans le portail.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Edit device details</span>
+                  <span data-lang="es">Editar detalles del dispositivo</span>
+                  <span data-lang="fr">Modifier les détails de l'appareil</span>
+                </strong>
+                <span data-lang="en"> — Select the device and open the edit panel.</span>
+                <span data-lang="es"> — Seleccione el dispositivo y abra el panel de edición.</span>
+                <span data-lang="fr"> — Sélectionnez l'appareil et ouvrez le panneau de modification.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Configure provisioning</span>
+                  <span data-lang="es">Configurar aprovisionamiento</span>
+                  <span data-lang="fr">Configurer le provisionnement</span>
+                </strong>
+                <span data-lang="en"> — Select <strong>Semi Provision</strong>, choose the <strong>Warehouse_ID</strong> for the reseller, and save the details.</span>
+                <span data-lang="es"> — Seleccione <strong>Semi Provision</strong>, elija el <strong>Warehouse_ID</strong> para el revendedor y guarde los detalles.</span>
+                <span data-lang="fr"> — Sélectionnez <strong>Semi Provision</strong>, choisissez le <strong>Warehouse_ID</strong> pour le revendeur et enregistrez les détails.</span>
+              </li>
+            </ol>
+
+            <div class="callout callout--connector">
+              <span class="callout__icon">↕</span>
+              <div class="callout__body">
+                <span data-lang="en">LightMetrics will update the reseller when devices have been added.</span>
+                <span data-lang="es">LightMetrics actualizará al revendedor cuando los dispositivos hayan sido agregados.</span>
+                <span data-lang="fr">LightMetrics informera le revendeur lorsque les appareils auront été ajoutés.</span>
+              </div>
+            </div>
+
+            <figure class="image-container">
+              <img src="./assets/screenshots/phase3-step3-lightmetrics-add-devices.png" alt="LightMetrics Edit Device dialog showing Semi Provision option selected with Warehouse_DLA Account ID and STANDARD plan" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <!-- 3.3 Reseller Provisions Device -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">3.3</span>
+              <div>
+                <h3 class="substep__title">
+                  <span data-lang="en">Reseller Provisions Device to Account</span>
+                  <span data-lang="es">El Revendedor Aprovisiona el Dispositivo a la Cuenta</span>
+                  <span data-lang="fr">Le Revendeur Provisionne l'Appareil au Compte</span>
+                </h3>
+                <p class="substep__actor">
+                  <span data-lang="en">Actor: Reseller Admin</span>
+                  <span data-lang="es">Actor: Administrador del Revendedor</span>
+                  <span data-lang="fr">Acteur: Administrateur Revendeur</span>
+                </p>
+              </div>
+            </div>
+
+            <ol class="substep__instructions">
+              <li>
+                <strong>
+                  <span data-lang="en">Log in and navigate to Devices</span>
+                  <span data-lang="es">Iniciar sesión y navegar a Dispositivos</span>
+                  <span data-lang="fr">Se connecter et naviguer vers Appareils</span>
+                </strong>
+                <span data-lang="en"> — Log into <strong>Navixy's</strong> master portal using your reseller account and navigate to the <strong>Devices</strong> section.</span>
+                <span data-lang="es"> — Inicie sesión en el portal maestro de <strong>Navixy</strong> usando su cuenta de revendedor y navegue a la sección de <strong>Dispositivos</strong>.</span>
+                <span data-lang="fr"> — Connectez-vous au portail maître de <strong>Navixy</strong> avec votre compte revendeur et naviguez vers la section <strong>Appareils</strong>.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Search for warehouse</span>
+                  <span data-lang="es">Buscar almacén</span>
+                  <span data-lang="fr">Rechercher l'entrepôt</span>
+                </strong>
+                <span data-lang="en"> — In the account filter, search for the account <strong>"warehouse"</strong>.</span>
+                <span data-lang="es"> — En el filtro de cuentas, busque la cuenta <strong>"warehouse"</strong>.</span>
+                <span data-lang="fr"> — Dans le filtre de comptes, recherchez le compte <strong>« warehouse »</strong>.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Edit the device</span>
+                  <span data-lang="es">Editar el dispositivo</span>
+                  <span data-lang="fr">Modifier l'appareil</span>
+                </strong>
+                <span data-lang="en"> — Locate the device and click <strong>Edit</strong>.</span>
+                <span data-lang="es"> — Localice el dispositivo y haga clic en <strong>Editar</strong>.</span>
+                <span data-lang="fr"> — Localisez l'appareil et cliquez sur <strong>Modifier</strong>.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Update New-Fleet Account</span>
+                  <span data-lang="es">Actualizar cuenta de Nueva Flota</span>
+                  <span data-lang="fr">Mettre à jour le compte Nouvelle Flotte</span>
+                </strong>
+                <ul style="margin-top: var(--space-2); margin-left: var(--space-4);">
+                  <li>
+                    <span data-lang="en">Clear the current account name</span>
+                    <span data-lang="es">Borre el nombre de cuenta actual</span>
+                    <span data-lang="fr">Effacez le nom de compte actuel</span>
+                  </li>
+                  <li>
+                    <span data-lang="en">Search for the desired new fleet account</span>
+                    <span data-lang="es">Busque la cuenta de flota deseada</span>
+                    <span data-lang="fr">Recherchez le compte de flotte souhaité</span>
+                  </li>
+                  <li>
+                    <span data-lang="en">Select a <strong>plan</strong> for the device</span>
+                    <span data-lang="es">Seleccione un <strong>plan</strong> para el dispositivo</span>
+                    <span data-lang="fr">Sélectionnez un <strong>forfait</strong> pour l'appareil</span>
+                  </li>
+                  <li>
+                    <span data-lang="en">Select a <strong>duty type</strong></span>
+                    <span data-lang="es">Seleccione un <strong>tipo de servicio</strong></span>
+                    <span data-lang="fr">Sélectionnez un <strong>type de service</strong></span>
+                  </li>
+                  <li>
+                    <span data-lang="en">Click <strong>Save</strong> to confirm</span>
+                    <span data-lang="es">Haga clic en <strong>Guardar</strong> para confirmar</span>
+                    <span data-lang="fr">Cliquez sur <strong>Enregistrer</strong> pour confirmer</span>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+
+            <div class="callout callout--info">
+              <span class="callout__icon">ℹ️</span>
+              <div class="callout__body">
+                <span data-lang="en">You must clear the account name field first before searching for the desired new account.</span>
+                <span data-lang="es">Debe borrar el campo de nombre de cuenta primero antes de buscar la nueva cuenta deseada.</span>
+                <span data-lang="fr">Vous devez effacer le champ du nom de compte avant de rechercher le nouveau compte souhaité.</span>
+              </div>
+            </div>
+
+            <figure class="image-container">
+              <img src="./assets/screenshots/phase3-step4-provision-device.png" alt="Edit Device dialog showing Device Details form with Asset Name, Account ID, RideCam Plus plan (SHIELD-LITE), and Duty type (Light) fields" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <!-- 3.4 Transfer Device (Optional) -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">3.4</span>
+              <div>
+                <h3 class="substep__title">
+                  <span data-lang="en">Transfer Device to Another Fleet (Optional)</span>
+                  <span data-lang="es">Transferir Dispositivo a Otra Flota (Opcional)</span>
+                  <span data-lang="fr">Transférer un Appareil vers une Autre Flotte (Optionnel)</span>
+                </h3>
+                <p class="substep__actor">
+                  <span data-lang="en">Actor: Reseller Admin</span>
+                  <span data-lang="es">Actor: Administrador del Revendedor</span>
+                  <span data-lang="fr">Acteur: Administrateur Revendeur</span>
+                </p>
+              </div>
+            </div>
+
+            <p style="margin-bottom: var(--space-3); color: var(--theme-subtext);">
+              <span data-lang="en">To reassign a device from one fleet to another:</span>
+              <span data-lang="es">Para reasignar un dispositivo de una flota a otra:</span>
+              <span data-lang="fr">Pour réaffecter un appareil d'une flotte à une autre:</span>
+            </p>
+
+            <ol class="substep__instructions">
+              <li>
+                <strong>
+                  <span data-lang="en">Remove device from fleet</span>
+                  <span data-lang="es">Eliminar dispositivo de la flota</span>
+                  <span data-lang="fr">Retirer l'appareil de la flotte</span>
+                </strong>
+                <span data-lang="en"> — Navigate to the device in the current fleet, open the context menu, and select <strong>Send to Warehouse</strong>.</span>
+                <span data-lang="es"> — Navegue al dispositivo en la flota actual, abra el menú contextual y seleccione <strong>Enviar a Almacén</strong>.</span>
+                <span data-lang="fr"> — Naviguez vers l'appareil dans la flotte actuelle, ouvrez le menu contextuel et sélectionnez <strong>Envoyer à l'Entrepôt</strong>.</span>
+              </li>
+              <li>
+                <strong>
+                  <span data-lang="en">Re-provision</span>
+                  <span data-lang="es">Re-aprovisionar</span>
+                  <span data-lang="fr">Re-provisionner</span>
+                </strong>
+                <span data-lang="en"> — The device returns to the warehouse. Follow the steps in 3.3 to provision it to a different fleet account.</span>
+                <span data-lang="es"> — El dispositivo regresa al almacén. Siga los pasos de 6.3 para aprovisionarlo a una cuenta de flota diferente.</span>
+                <span data-lang="fr"> — L'appareil retourne à l'entrepôt. Suivez les étapes de 6.3 pour le provisionner sur un autre compte de flotte.</span>
+              </li>
+            </ol>
+
+            <figure class="image-container">
+              <img src="./assets/screenshots/phase3-step5-transfer-device.png" alt="LightMetrics Device List showing context menu with Send to Ware-house option highlighted for device transfer" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <!-- Stage 3 Overview Diagram -->
+        <div class="substep">
+          <div class="substep__inner">
+            <div class="substep__header">
+              <span class="substep__badge">📊</span>
+              <h3 class="substep__title">
+                <span data-lang="en">Stage 3 Complete Flow</span>
+                <span data-lang="es">Flujo Completo de la Etapa 3</span>
+                <span data-lang="fr">Flux Complet de l'Étape 3</span>
+              </h3>
+            </div>
+            <figure class="image-container">
+              <img src="./assets/stage3-overview.png" alt="Production Device Addition flow diagram showing four swim lanes from account creation to device transfer" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Navigation -->
+      <div class="step-nav">
+        <a href="#top" class="step-nav__btn">
+          <span data-lang="en">↑ Back to Top</span>
+          <span data-lang="es">↑ Volver Arriba</span>
+          <span data-lang="fr">↑ Retour en Haut</span>
+        </a>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    // Progress bar
+    window.addEventListener('scroll', () => {
+      const el = document.documentElement;
+      const pct = (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100;
+      document.getElementById('scrollBar').style.width = pct + '%';
+    });
+
+    // Sidebar toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const sidebarClose = document.getElementById('sidebarClose');
+
+    function toggleSidebar() {
+      menuToggle.classList.toggle('open');
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('active');
+    }
+
+    menuToggle.addEventListener('click', toggleSidebar);
+    sidebarOverlay.addEventListener('click', toggleSidebar);
+    sidebarClose.addEventListener('click', toggleSidebar);
+
+    // Close sidebar on link click (mobile)
+    sidebar.querySelectorAll('.sidebar__link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1200) {
+          toggleSidebar();
+        }
+      });
+    });
+
+    // Language switching
+    const langSelect = document.getElementById('langSelect');
+    const savedLang = localStorage.getItem('doc-lang');
+    if (savedLang) {
+      document.body.setAttribute('data-lang', savedLang);
+      langSelect.value = savedLang;
+    }
+
+    langSelect.addEventListener('change', (e) => {
+      document.body.setAttribute('data-lang', e.target.value);
+      localStorage.setItem('doc-lang', e.target.value);
+    });
+
+    // Close sidebar on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+        toggleSidebar();
+      }
+    });
+
+    // Scroll spy — highlight active sidebar link
+    const sections = document.querySelectorAll('.step-section[id]');
+    const sidebarLinks = document.querySelectorAll('.sidebar__link');
+
+    function setActiveLink(id) {
+      sidebarLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      // Find the topmost visible section
+      const visible = [];
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          visible.push(entry);
+        }
+      });
+      // Use the section closest to the top of the viewport
+      if (visible.length > 0) {
+        visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        setActiveLink(visible[0].target.id);
+      }
+    }, {
+      rootMargin: '-80px 0px -60% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Also update on scroll for edge cases (top of page)
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < 100) {
+        setActiveLink('overview');
+      }
+    }, { passive: true });
+
+    // Set initial active state
+    setActiveLink('overview');
+  </script>
+
+</body>
+</html>
